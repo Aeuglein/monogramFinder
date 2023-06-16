@@ -1,14 +1,33 @@
+*{
+    touch-action: manipulation;
+}
+
+:root{
+
+    --pianoButtonsWidth: 2em; 
+    --inputWidth: calc(1.8em + calc(var(--pianoButtonsWidth) * 7))
+}
+
+
 body{
     background-image: url(bg.png);
     background-repeat: no-repeat;
-    background-size: 100vw 100vh;
+    background-size: 100% 100%;
+    max-height: fit-content;
+    min-height: 100vh;
 }
+
+button{
+    padding: 0px !important;
+}
+
+
 
 #input{
     display: flex;
     border-radius: 5px;
-    width: 24em;
-    min-height: 100px;
+    width: var(--inputWidth);
+    min-height: 90px;
     padding: 0.5em;
     overflow-wrap: anywhere;
 }
@@ -16,58 +35,577 @@ body{
 #output{
     display: flex;
     border-radius: 5px;
-    width: 24em;
-    min-height: 100px;
+    width: var(--inputWidth);
+    min-height: 90px;
     padding: 0.5em;
     overflow-wrap: anywhere;
-    margin-top: 12vh;
 }
+.underlineHead {display:inline-block;height: 1.4em; border-bottom: 0.1em solid #212529;}
 
-span{
+div>span{
+    display: inline-block;
     background-color: khaki;
     height: 1.5em;
 }
 
-.note{
-    width: 3em;
-}
 
 #noteButtonsRowSharp{
-    margin-left: 1.5em
+    display: flex;
+    margin-left: calc(var(--pianoButtonsWidth) / 2);
 }
 
 #noteButtonsRowFlat{
-    margin-left: 1.5em
+    display: flex;
+    margin-left: calc(var(--pianoButtonsWidth) / 2)
+}
+
+#noteButtonsRow{
+    display: flex;
+}
+
+#enharmonicRow{
+    display: flex;
 }
 
 
-#space{
-    width: 12em;
-    padding: 0.1em
 
+.noteStyle{
+    min-width:var(--pianoButtonsWidth) !important;
+    margin-right:0.3em
+ }
+ 
+ 
+ .last{
+     margin-right:0em
+ }
+
+ .skip1{
+    margin-left: calc(var(--pianoButtonsWidth) + 0.3em);
+ }
+
+ .skip2{
+    margin-left: calc(0.6em + calc(var(--pianoButtonsWidth) * 2));
+ }
+
+
+.spaceStyle{
+    display: block;
+    width: calc(var(--inputWidth) / 2);
+    padding: 0.1em;
+    margin-inline: auto;
 }
 
 #spaceRow{
-
-    margin-left: 6em;
-
+width: var(--inputWidth);
+margin-bottom: 20px;
 }
 
 #controlButtons{
  
-    width: 24em;
+    width: var(--inputWidth);
+    margin-bottom: 20px;
 
 }
 
 #inspectorWrapper{
-    width: 24em;;
+    width: var(--inputWidth);
 }
+
 
 #enterWrapper{
-    width: 12em;
+    width: calc(var(--inputWidth) / 2);
+    pointer-events: none;
+}
+
+
+
+#deleteWrapper{
+    width: calc(var(--inputWidth) / 2);
+}
+
+#main{
+    display: block;
+    margin-inline: auto;
+    width: var(--inputWidth);
+    padding: 0px;
+    margin-top: 15px;
+}
+
+h1{
+    font-size: 1.4em;
+    margin-bottom: 25px
+}
+
+.controlsStyle{
+
+    width: calc(var(--pianoButtonsWidth) * 1.5);
+}
+
+.controlsSearch{
+
+    width: calc(var(--pianoButtonsWidth) * 1.5);
+}
+
+.btn{
+    font-size: 0.8em;
+}
+
+
+
+*{pointer-events: none;}
+button{pointer-events: all;}
+
+
+@media(orientation:landscape){
+    :root{
+        --pianoButtonsWidth: 4em; 
+    }
+
+    h1{ font-size: 1.4em;
+        margin-bottom: 35px;
+    }
+
+    #spaceRow{
+        margin-bottom: 30px;
+    }
+
+    #controlButtons{
+        margin-bottom: 30px;
+    }
+
+    #input{
+        min-height: 80px;
+        font-size: 1em;
+    }
+
+    #output{
+    min-height: 80px;
+    font-size: 1em;
+}
+    .btn{
+        font-size: 1em;
+    }
+
+    #main{
+        margin-top: 15px;
+    }
 
 }
 
-#deleteWrapper{
-    width: 12em
+
+
+
+@media(min-width:374px) and (orientation:portrait){
+
+    :root{
+        --pianoButtonsWidth: 2.3em; 
+    }
+
+    h1{ font-size:1.6em;
+        margin-bottom: 40px;
+    }
+
+    #spaceRow{
+        margin-bottom: 30px;
+    }
+
+    #controlButtons{
+        margin-bottom: 30px;
+    }
+
+    #input{
+        min-height: 110px;
+        font-size: 1em;
+    }
+
+    #output{
+    min-height: 110px;
+    font-size: 1em;
+}
+    .btn{
+        font-size: 1em;
+    }
+
+    #main{
+        margin-top: 18px;
+    }
+}
+
+
+
+@media(min-width:413px) and (orientation:portrait){
+
+    :root{
+        --pianoButtonsWidth: 2.5em; 
+    }
+
+    h1{ font-size:1.7em;
+        margin-bottom: 50px;
+    }
+
+    #spaceRow{
+        margin-bottom: 35px;
+    }
+
+    #controlButtons{
+        margin-bottom: 35px;
+    }
+
+    #input{
+        min-height: 120px;
+        font-size: 1.1em;
+    }
+
+    #output{
+    min-height: 120px;
+    font-size: 1.1em;
+}
+    .btn{
+        font-size: 1.1em;
+    }
+
+    #main{
+        margin-top: 20px;
+    }
+}
+
+@media(min-width: 666px) and (orientation: landscape){
+
+    :root{
+        --pianoButtonsWidth: 4.5em; 
+    }
+
+    h1{ font-size: 1.6em;
+        margin-bottom: 35px;
+    }
+
+    #spaceRow{
+        margin-bottom: 30px;
+    }
+
+    #controlButtons{
+        margin-bottom: 30px;
+    }
+
+    #input{
+        min-height: 90px;
+        font-size: 1.2em;
+    }
+
+    #output{
+    min-height: 90px;
+    font-size: 1.2em;
+}
+    .btn{
+        font-size: 1.2em;
+    }
+
+    #main{
+        margin-top: 15px;
+    }
+
+
+}
+
+
+
+@media(min-width:767px) and (orientation:portrait) {
+    :root{
+        --pianoButtonsWidth: 4.5em; 
+    }
+
+    h1{ font-size:2.9em;
+        margin-bottom: 70px;
+    }
+
+    #spaceRow{
+        margin-bottom: 70px;
+    }
+
+    #controlButtons{
+        margin-bottom: 70px;
+    }
+
+    #input{
+        min-height: 160px;
+        font-size: 1.5em;
+    }
+
+    #output{
+    min-height: 160px;
+    font-size: 1.5em;
+}
+    .btn{
+        font-size: 1.5em;
+    }
+
+    #main{
+        margin-top: 25px;
+    }
+}
+
+
+
+
+
+
+
+
+@media(min-width:799px) and (orientation: landscape){
+    :root{
+        --pianoButtonsWidth: 5.5em; 
+    }
+
+    h1{ font-size: 1.9em;
+        margin-bottom: 35px;
+    }
+
+    #spaceRow{
+        margin-bottom: 30px;
+    }
+
+    #controlButtons{
+        margin-bottom: 30px;
+    }
+
+    #input{
+        min-height: 80px;
+        font-size: 1em;
+    }
+
+    #output{
+    min-height: 80px;
+    font-size: 1em;
+}
+    .btn{
+        font-size: 1em;
+    }
+
+    #main{
+        margin-top: 15px;
+    }
+}
+
+
+@media(min-width:833px) and (orientation:portrait){
+    :root{
+        --pianoButtonsWidth: 5.6em; 
+    }
+
+    h1{ font-size:3.5em;
+        margin-bottom: 75px;
+    }
+
+    #spaceRow{
+        margin-bottom: 65px;
+    }
+
+    #controlButtons{
+        margin-bottom: 65px;
+    }
+
+    #input{
+        min-height: 180px;
+        font-size: 1.7em;
+    }
+
+    #output{
+    min-height: 180px;
+    font-size: 1.7em;
+}
+    .btn{
+        font-size: 1.7em;
+    }
+
+    #main{
+        margin-top: 35px;
+    }
+}
+
+@media(min-width:1023px) and (orientation:portrait){
+    :root{
+        --pianoButtonsWidth: 7em; 
+    }
+
+    h1{ font-size:4.5em;
+        margin-bottom: 100px;
+    }
+
+    #spaceRow{
+        margin-bottom: 90px;
+    }
+
+    #controlButtons{
+        margin-bottom: 90px;
+    }
+
+    #input{
+        min-height: 210px;
+        font-size: 2em;
+    }
+
+    #output{
+    min-height: 210px;
+    font-size: 2em;
+}
+    .btn{
+        font-size: 2em;
+    }
+
+    #main{
+        margin-top: 35px;
+    }
+}
+
+
+@media(min-width: 1023px) and (orientation: landscape){
+
+    :root{
+        --pianoButtonsWidth: 7em; 
+    }
+
+    h1{ font-size: 2.5em;
+        margin-bottom: 45px;
+    }
+
+    #spaceRow{
+        margin-bottom: 30px;
+    }
+
+    #controlButtons{
+        margin-bottom: 30px;
+    }
+
+    #input{
+        min-height: 110px;
+        font-size: 1.4em;
+    }
+
+    #output{
+    min-height: 110px;
+    font-size: 1.4em;
+}
+    .btn{
+        font-size: 1.4em;
+    }
+
+    #main{
+        margin-top: 20px;
+    }
+
+
+}
+
+@media(min-width:1365px) and (orientation: landscape){
+    :root{
+        --pianoButtonsWidth: 9.5em; 
+    }
+
+    h1{ font-size: 3.3em;
+        margin-bottom: 40px;
+    }
+
+    #spaceRow{
+        margin-bottom: 25px;
+    }
+
+    #controlButtons{
+        margin-bottom: 30px;
+    }
+
+    #input{
+        min-height: 100px;
+        font-size: 1.5em;
+    }
+
+    #output{
+    min-height: 100px;
+    font-size: 1.5em;
+}
+    .btn{
+        font-size: 1.5em;
+    }
+
+    #main{
+        margin-top: 20px;
+    }
+}
+
+@media(min-width:1365px) and (min-height: 1023px) and (orientation: landscape){
+    :root{
+        --pianoButtonsWidth: 9.5em; 
+    }
+
+    h1{ font-size: 3.3em;
+        margin-bottom: 60px;
+    }
+
+    #spaceRow{
+        margin-bottom: 40px;
+    }
+
+    #controlButtons{
+        margin-bottom: 40px;
+    }
+
+    #input{
+        min-height: 140px;
+        font-size: 2.1em;
+    }
+
+    #output{
+    min-height: 140px;
+    font-size: 2.1em;
+}
+    .btn{
+        font-size: 2.1em;
+    }
+
+    #main{
+        margin-top: 20px;
+    }
+}
+
+
+@media(min-width:1919px) and (orientation: landscape){
+    :root{
+        --pianoButtonsWidth: 11em; 
+    }
+
+    h1{ font-size: 4em;
+        margin-bottom: 60px;
+    }
+
+    #spaceRow{
+        margin-bottom: 45px;
+    }
+
+    #controlButtons{
+        margin-bottom: 45px;
+    }
+
+    #input{
+        min-height: 180px;
+        font-size: 2em;
+    }
+
+    #output{
+    min-height: 180px;
+    font-size: 2em;
+}
+    .btn{
+        font-size: 2em;
+    }
+
+    #main{
+        margin-top: 20px;
+    }
+}
+
+@media(min-height:768px) and (orientation: landscape){
+
+    h1{
+        margin-bottom: 1em;
+    }
+
 }

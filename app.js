@@ -19,6 +19,8 @@ function getInput(){
     generateRegex()
     final=regexArray.map(regex=>goToDict(regex)).join(" ")
     output.textContent=final
+    if(analyser===true){inspect()}
+
 }
 
 
@@ -57,13 +59,6 @@ function goToDict(regex){
   return resultArray[randomIndex]
 }
 
-
-
-
-
-
-
-
 document.getElementById("cis").addEventListener("click", ()=>document.getElementById("input").textContent+="Cis")
 document.getElementById("dis").addEventListener("click", ()=>document.getElementById("input").textContent+="Dis")
 document.getElementById("eis").addEventListener("click", ()=>document.getElementById("input").textContent+="Eis")
@@ -96,8 +91,8 @@ const inspector=document.getElementById("inspector")
 inspector.addEventListener("click",inspectAndBack)
 
 function inspectAndBack(){
-if (analyser===false) {inspect(); analyser=true; document.getElementById("inspector").textContent="back"}
-else {back(); analyser=false; document.getElementById("inspector").textContent="inspector"}
+if (analyser===false) {inspect(); analyser=true; document.getElementById("inspector").textContent="Hide"}
+else {back(); analyser=false; document.getElementById("inspector").textContent="Show"}
 }
 
 function back(){
@@ -109,7 +104,6 @@ function inspect(){
     console.log(inputSubArrays)
     console.log(result)
 
-    /* const boldArray=inputSubArrays.map(subArray=>subArray.map((match,index)=>{return result[index].replace(match.toLowerCase(),`<br>${match.toLowerCase()}<br>`)}))*/
 
 
     for(let i=0; i<inputSubArrays.length; i++)
@@ -130,7 +124,8 @@ function inspect(){
 
    const ArrayToString=result.join(" ")
    const convertToBoldTag=ArrayToString.replace(/§|%/g, "span")
-   output.innerHTML=convertToBoldTag
+   const convertToBoldTagSpace=convertToBoldTag.trim().replace(/[ ]/g, "&nbsp")
+   output.innerHTML=convertToBoldTagSpace
    console.log(convertToBoldTag)
 }
 
@@ -161,3 +156,5 @@ document.getElementById("inspector").setAttribute("disabled",true)
 document.getElementById("enter").addEventListener("click", ()=>document.getElementById("inspector").removeAttribute("disabled"))
 
 document.querySelectorAll(".note").forEach(noteButton=>noteButton.addEventListener("click", ()=>document.querySelectorAll(".controls").forEach(controlButton=>controlButton.removeAttribute("disabled"))))
+
+
