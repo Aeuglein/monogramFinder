@@ -1,3 +1,4 @@
+
 *{
     touch-action: manipulation;
 }
@@ -269,47 +270,52 @@ button{pointer-events: all;}
     }
 }
 
-@media(min-width: 666px) and (orientation: landscape){
+
+
+@media(min-width:767px) and (orientation:landscape){
 
     :root{
         --pianoButtonsWidth: 4.5em; 
     }
 
-    h1{ font-size: 1.6em;
-        margin-bottom: 35px;
+    h1{ font-size:1.6em;
+        margin-bottom: 45px;
     }
 
     #spaceRow{
-        margin-bottom: 30px;
+        margin-bottom: 55px;
     }
 
     #controlButtons{
-        margin-bottom: 30px;
+        margin-bottom: 55px;
     }
 
     #input{
-        min-height: 90px;
-        font-size: 1.2em;
+        min-height: 120px;
+        font-size: 1.1em;
     }
 
     #output{
-    min-height: 90px;
-    font-size: 1.2em;
+    min-height: 120px;
+    font-size: 1.1em;
 }
     .btn{
-        font-size: 1.2em;
+        font-size: 1.1em;
     }
 
     #main{
-        margin-top: 15px;
+        margin-top: 20px;
     }
-
-
 }
 
 
 
-@media(min-width:767px) and (orientation:portrait) {
+
+
+
+
+@media(min-width:767px) and (min-height: 1023px) and (orientation:portrait){
+
     :root{
         --pianoButtonsWidth: 4.5em; 
     }
@@ -350,8 +356,7 @@ button{pointer-events: all;}
 
 
 
-
-@media(min-width:799px) and (orientation: landscape){
+@media(min-width:799px) and (max-height:600px) and (orientation: landscape){
     :root{
         --pianoButtonsWidth: 5.5em; 
     }
@@ -502,7 +507,7 @@ button{pointer-events: all;}
     }
 
     h1{ font-size: 3.3em;
-        margin-bottom: 40px;
+        margin-bottom: 45px;
     }
 
     #spaceRow{
@@ -527,7 +532,7 @@ button{pointer-events: all;}
     }
 
     #main{
-        margin-top: 20px;
+        margin-top: 15px;
     }
 }
 
@@ -602,10 +607,28 @@ button{pointer-events: all;}
     }
 }
 
-@media(min-height:768px) and (orientation: landscape){
+@media(min-height:900px) and (orientation: landscape){
 
     h1{
         margin-bottom: 1em;
     }
 
+    #spaceRow{
+        margin-bottom: 55px;
+    }
+
+    #controlButtons{
+        margin-bottom: 55px;
+    }
+
+    #input{
+        min-height: 120px;
+        font-size: 2em;
+    }
+
+    #output{
+    min-height: 120px;
+    font-size: 2em;
+}
+    
 }
