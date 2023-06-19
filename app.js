@@ -52,12 +52,10 @@ function getInput(){
 function toArray(){
     formattedInputString=inputString.replace(/[ ]{2,}/g," ")
     inputArray=formattedInputString.trim().split(" ")
-    console.log(inputArray)
 }
 
 function toSubArrays(){
     inputSubArrays=inputArray.map(preWord=>{return preWord.split(/(?=[A-Z])/)})
-    console.log(inputSubArrays)
 }
 
 function generateRegex(){
@@ -70,7 +68,6 @@ function generateRegex(){
     
     generatedRegex="^[^cdefgabhs]*"+regex+"[^cdefgabhs]*$"
     regexArray.push(generatedRegex)
-    console.log(regexArray)
     }
     )
 }
@@ -79,7 +76,6 @@ function goToDict(regex){
   const stringToRegex=new RegExp(regex, "i")
   const resultArray=dictArray.filter(word=>{return stringToRegex.test(word)})
   const length=resultArray.length
-  console.log(length)
   const randomIndex=Math.floor(Math.random()*length)
   return resultArray[randomIndex]
 }
@@ -126,23 +122,20 @@ function back(){
 
 function inspect(){
     const result= document.getElementById("output").textContent.split(" ")
-    console.log(inputSubArrays)
-    console.log(result)
 
 
 
     for(let i=0; i<inputSubArrays.length; i++)
     {
      
-        console.log(result[i])
-        console.log(inputSubArrays[i])
+
+        inputSubArrays[i] = [...new Set(inputSubArrays[i])];
+        inputSubArrays[i].forEach(note=>inputSubArrays[i].push(note.toLowerCase()))
 
         for(let j=0; j<inputSubArrays[i].length; j++)
         {
-            console.log(inputSubArrays[i][j])
-            result[i]=result[i].replace(inputSubArrays[i][j],`<§>${inputSubArrays[i][j]}</%>`)
-            result[i]=result[i].replace(inputSubArrays[i][j].toLowerCase(),`<§>${inputSubArrays[i][j].toLowerCase()}</%>`)
-            console.log(result[i])
+            let search=new RegExp(inputSubArrays[i][j], "g")
+            result[i]=result[i].replace(search,`<§>${inputSubArrays[i][j]}</%>`)
         } 
       
     }
@@ -151,7 +144,6 @@ function inspect(){
    const convertToBoldTag=ArrayToString.replace(/§|%/g, "span")
    const convertToBoldTagSpace=convertToBoldTag.trim().replace(/[ ]/g, "&nbsp")
    output.innerHTML=convertToBoldTagSpace
-   console.log(convertToBoldTag)
 }
 
 
